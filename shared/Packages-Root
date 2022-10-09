@@ -30,6 +30,9 @@ xz
 >multilib gcc-libs-multilib
 acpi
 acpid
+amd-ucode
+b43-fwcutter
+btrfs-progs
 bzip2
 coreutils
 cpupower
@@ -37,16 +40,25 @@ crda
 cronie
 cryptsetup
 device-mapper
+dhclient
+dhcpcd
 diffutils
+dmraid
+dnsmasq
+dosfstools
+e2fsprogs
 ecryptfs-utils
+efibootmgr
 exfatprogs
 f2fs-tools
 grub
 inetutils
 intel-ucode
+jfsutils
 KERNEL
 less
 lvm2
+#manjaro-firmware
 manjaro-release
 manjaro-system
 manjaro-zsh-config
@@ -54,9 +66,13 @@ mdadm
 memtest86+
 mhwd
 mhwd-db
+mkinitcpio-openswap
+nfs-utils
 ntfs-3g
 os-prober
 perl
+reiserfsprogs
+rsync
 s-nail
 sof-firmware
 spectre-meltdown-checker
@@ -70,3 +86,5 @@ vi
 wget
 which
 wpa_supplicant
+xfsprogs
+

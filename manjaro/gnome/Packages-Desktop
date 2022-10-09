@@ -6,6 +6,12 @@ networkmanager
 ## Libraries for Sound/Audio/Video
 
 ## Fonts
+ttf-dejavu
+ttf-droid
+ttf-hack
+ttf-inconsolata
+ttf-indic-otf
+ttf-liberation
 noto-fonts                         # default font
 
 ## Games
@@ -49,6 +55,8 @@ xcursor-breeze
 ## Applications
 firefox
 ibus
+manjaro-application-utility
+manjaro-settings-manager-notifier
 mousetweaks
 nautilus-admin
 nautilus-empty-file
@@ -75,6 +83,7 @@ xorg-twm
 xorg-xinit
 
 ## Matti's corner
+manjaro-ranger-settings
 
 ## Added packages
 qemu-base
