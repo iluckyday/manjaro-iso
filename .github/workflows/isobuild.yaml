@@ -15,6 +15,7 @@ jobs:
         BRANCH: [unstable]
         SCOPE: [minimal]
         KERNEL: [linux519]
+        VERSION: ["22.0"]
     steps:
       -
         uses: styfle/cancel-workflow-action@main
@@ -29,7 +30,8 @@ jobs:
           branch: ${{ matrix.branch }}
           scope: ${{ matrix.scope }}
           kernel:  ${{ matrix.kernel }}
+          version:  ${{ matrix.version }}
       -
         name: upload
         run: |
-          ls -lh /var/cache/manjaro-tools/iso
+          ls -laRh /var/cache/manjaro-tools/iso
