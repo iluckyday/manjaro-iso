@@ -1,0 +1,35 @@
+name: iso_build
+on:
+  schedule:
+    - cron:  "0 0 * * 0"
+  push:
+    branches:
+      - main
+
+jobs:
+  build-release:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        EDITION: [gnome]
+        BRANCH: [unstable]
+        SCOPE: [minimal]
+        KERNEL: [linux519]
+    steps:
+      -
+        uses: styfle/cancel-workflow-action@main
+        with:
+          access_token: ${{ github.token }}
+      -
+        name: image-build
+        uses: manjaro/manjaro-iso-action@main
+        with:
+          iso-profiles-repo: "https://github.com/iluckyday/manjaro-iso-profile"
+          edition: ${{ matrix.edition }}
+          branch: ${{ matrix.branch }}
+          scope: ${{ matrix.scope }}
+          kernel:  ${{ matrix.kernel }}
+      -
+        name: upload
+        run: |
+          ls -lh /var/cache/manjaro-tools/iso

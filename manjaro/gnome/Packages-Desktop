@@ -1,0 +1,92 @@
+## Network
+networkmanager
+
+## Btrfs
+
+## Libraries for Sound/Audio/Video
+
+## Fonts
+ttf-dejavu
+ttf-droid
+ttf-hack
+ttf-inconsolata
+ttf-indic-otf
+ttf-liberation
+noto-fonts                         # default font
+
+## Games
+
+## Package management
+
+## Printing
+
+## GNOME group
+gnome-shell
+gedit
+totem
+>basic gdm                         # gdm-plymouth in full edition
+gnome-keyring
+gnome-session
+gnome-settings-daemon
+gnome-shell-extensions
+gvfs
+mutter
+sushi
+xdg-user-dirs-gtk
+nautilus
+gnome-terminal
+
+## GNOME Extra applications
+
+## GNOME Extra games
+
+## GNOME Shell Extensions
+
+## Themes
+adw-gtk-theme
+firefox-gnome-theme-maia
+manjaro-gdm-branding
+gnome-wallpapers
+papirus-maia-icon-theme
+grub-theme-manjaro
+manjaro-artwork
+xcursor-breeze
+
+## Applications
+firefox
+ibus
+manjaro-application-utility
+manjaro-settings-manager-notifier
+mousetweaks
+nautilus-admin
+nautilus-empty-file
+polkit-gnome
+xdg-utils
+
+## Optional dependencies for file-roller
+
+## Optional dependencies for inxi
+
+## Documentation
+
+## Settings packages
+manjaro-base-skel
+manjaro-gnome-settings
+
+## Xorg Input Drivers
+
+## Xorg Server
+numlockx
+xorg-mkfontscale
+xorg-server
+xorg-twm
+xorg-xinit
+
+## Matti's corner
+manjaro-ranger-settings
+
+## Added packages
+qemu-base
+samba
+v2ray 
+virt-viewer
