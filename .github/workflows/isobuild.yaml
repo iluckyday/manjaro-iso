@@ -35,3 +35,4 @@ jobs:
         name: upload
         run: |
           ls -laRh /var/cache/manjaro-tools/iso
+          ls -laRh

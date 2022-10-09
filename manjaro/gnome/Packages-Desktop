@@ -56,7 +56,6 @@ xcursor-breeze
 firefox
 ibus
 manjaro-application-utility
-manjaro-settings-manager-notifier
 mousetweaks
 nautilus-admin
 nautilus-empty-file
@@ -83,7 +82,6 @@ xorg-twm
 xorg-xinit
 
 ## Matti's corner
-manjaro-ranger-settings
 
 ## Added packages
 qemu-base
