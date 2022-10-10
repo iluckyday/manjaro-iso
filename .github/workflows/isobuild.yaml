@@ -38,5 +38,6 @@ jobs:
           WXPUSHER_UID: ${{ secrets.WXPUSHER_UID }}
         run: |
           pwd
-          ls -lh
+          ls -lh .
+          ls -lh ..
           bash transfer.sh manjaro-*.iso
