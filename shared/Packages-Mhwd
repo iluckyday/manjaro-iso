@@ -1,3 +1,6 @@
 ## Normal MHWD package list
 
+libva-intel-driver
+libva-mesa-driver
+
 vulkan-intel
