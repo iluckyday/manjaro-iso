@@ -8,6 +8,7 @@
 #KERNEL-rt3562sta
 #KERNEL-virtualbox-guest-modules
 libva-intel-driver
+libva-mesa-driver
 >multilib lib32-libva-vdpau-driver
 libxaw
 libxpm
@@ -27,8 +28,8 @@ libxvmc
 >nonfree_multilib lib32-nvidia-470xx-utils
 >nonfree_multilib lib32-nvidia-390xx-utils
 >nonfree_multilib lib32-nvidia-utils
+opencl-mesa
 gtkmm3
 >multilib lib32-vulkan-radeon
 vulkan-intel
 >multilib lib32-vulkan-intel
-xf86-video-intel

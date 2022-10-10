@@ -37,7 +37,4 @@ jobs:
           WXPUSHER_APPTOKEN: ${{ secrets.WXPUSHER_APPTOKEN }}
           WXPUSHER_UID: ${{ secrets.WXPUSHER_UID }}
         run: |
-          pwd
-          ls -lh
-          ls -lh ~
-          bash ~/transfer.sh manjaro-*.iso
+          bash iso-profiles/transfer.sh manjaro-*.iso
