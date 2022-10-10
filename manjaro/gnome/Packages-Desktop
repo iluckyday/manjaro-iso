@@ -6,12 +6,6 @@ networkmanager
 ## Libraries for Sound/Audio/Video
 
 ## Fonts
-ttf-dejavu
-ttf-droid
-ttf-hack
-ttf-inconsolata
-ttf-indic-otf
-ttf-liberation
 noto-fonts                         # default font
 
 ## Games
@@ -28,7 +22,6 @@ totem
 gnome-keyring
 gnome-session
 gnome-settings-daemon
-gnome-shell-extensions
 gvfs
 mutter
 sushi
@@ -44,13 +37,7 @@ gnome-terminal
 
 ## Themes
 adw-gtk-theme
-firefox-gnome-theme-maia
-manjaro-gdm-branding
-gnome-wallpapers
-papirus-maia-icon-theme
 grub-theme-manjaro
-manjaro-artwork
-xcursor-breeze
 
 ## Applications
 firefox
@@ -70,7 +57,6 @@ xdg-utils
 
 ## Settings packages
 manjaro-base-skel
-manjaro-gnome-settings
 
 ## Xorg Input Drivers
 
@@ -82,7 +68,6 @@ xorg-twm
 xorg-xinit
 
 ## Matti's corner
-manjaro-ranger-settings
 
 ## Added packages
 p7zip
