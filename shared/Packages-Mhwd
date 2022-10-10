@@ -8,13 +8,10 @@
 #KERNEL-rt3562sta
 #KERNEL-virtualbox-guest-modules
 libva-intel-driver
-libva-mesa-driver
-libva-vdpau-driver
 >multilib lib32-libva-vdpau-driver
 libxaw
 libxpm
 libxvmc
-mesa-vdpau
 >multilib lib32-mesa-vdpau
 >multilib lib32-libxvmc
 >multilib lib32-primus
