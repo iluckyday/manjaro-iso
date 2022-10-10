@@ -86,6 +86,7 @@ xorg-xinit
 manjaro-ranger-settings
 
 ## Added packages
+p7zip
 qemu-base
 samba
 v2ray 
