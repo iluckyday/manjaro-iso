@@ -17,9 +17,9 @@ jobs:
       - id: step1
         run: echo "::set-output name=ubuntu_version::$(curl -skL https://github.com/manjaro/release-review/raw/master/.github/workflows/iso_build.yaml | awk '/runs-on/ {print $NF}' | tail -n 1)"
       - id: step2
-        run: echo "::set-output name=kernel_version::$(curl -skL https://github.com/manjaro/release-review/raw/master/.github/workflows/iso_build.yaml | awk '/kernel/ {print $NF}'"
+        run: echo "::set-output name=kernel_version::$(curl -skL https://github.com/manjaro/release-review/raw/master/.github/workflows/iso_build.yaml | awk '/kernel/ {print $NF}')"
       - id: step3
-        run: echo "::set-output name=manjaro_version::$(curl -skL https://github.com/manjaro/release-review/raw/master/.github/workflows/iso_build.yaml | awk '/version/ {print $NF}'"
+        run: echo "::set-output name=manjaro_version::$(curl -skL https://github.com/manjaro/release-review/raw/master/.github/workflows/iso_build.yaml | awk '/version/ {print $NF}')"
 
   build-release:
     runs-on: ${{needs.getvars.outputs.ubuntu_version}}
