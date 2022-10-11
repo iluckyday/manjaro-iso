@@ -7,32 +7,41 @@ on:
       - main
 
 jobs:
+  getvars:
+    runs-on: ubuntu-latest
+    outputs:
+      ubuntu_version: ${{ steps.step1.outputs.ubuntu_version }}
+      kernel_version: ${{ steps.step2.outputs.kernel_version }}
+      manjaro_version: ${{ steps.step3.outputs.manjaro_version }}
+    steps:
+      - id: step1
+        run: echo "::set-output name=ubuntu_version::$(curl -skL https://github.com/manjaro/release-review/raw/master/.github/workflows/iso_build.yaml | awk '/runs-on/ {print $NF}' | tail -n 1)"
+      - id: step2
+        run: echo "::set-output name=kernel_version::$(curl -skL https://github.com/manjaro/release-review/raw/master/.github/workflows/iso_build.yaml | awk '/kernel/ {print $NF}'"
+      - id: step3
+        run: echo "::set-output name=manjaro_version::$(curl -skL https://github.com/manjaro/release-review/raw/master/.github/workflows/iso_build.yaml | awk '/version/ {print $NF}'"
+
   build-release:
-    runs-on: ubuntu-20.04
+    runs-on: ${{needs.getvars.outputs.ubuntu_version}}
     strategy:
       matrix:
         EDITION: [gnome]
         BRANCH: [unstable]
         SCOPE: [minimal]
-        KERNEL: [linux519]
-        VERSION: ["22.0"]
     steps:
-      -
-        uses: styfle/cancel-workflow-action@main
+      - uses: styfle/cancel-workflow-action@main
         with:
           access_token: ${{ github.token }}
-      -
-        name: image-build
+      - name: image-build
         uses: manjaro/manjaro-iso-action@main
         with:
           iso-profiles-repo: "https://github.com/iluckyday/manjaro-iso-profile"
           edition: ${{ matrix.edition }}
           branch: ${{ matrix.branch }}
           scope: ${{ matrix.scope }}
-          kernel:  ${{ matrix.kernel }}
-          version:  ${{ matrix.version }}
-      -
-        name: Push to transfer
+          kernel: ${{needs.getvars.outputs.kernel_version}}
+          version: ${{needs.getvars.outputs.manjaro_version}}
+      - name: Push to transfer
         env:
           WXPUSHER_APPTOKEN: ${{ secrets.WXPUSHER_APPTOKEN }}
           WXPUSHER_UID: ${{ secrets.WXPUSHER_UID }}

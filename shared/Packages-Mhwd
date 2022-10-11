@@ -3,6 +3,8 @@
 libva-intel-driver
 libva-mesa-driver
 libva-vdpau-driver
+libxaw
+libxpm
 libxvmc
 mesa-vdpau
 vulkan-radeon
