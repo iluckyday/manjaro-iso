@@ -44,8 +44,8 @@ noto-fonts                         # default font
 ## Games
 
 ## Package management
-#pamac-gtk
-#pamac-gnome-integration
+pamac-gtk
+pamac-gnome-integration
 >extra pamac-snap-plugin
 >extra pamac-flatpak-plugin
 
@@ -57,12 +57,12 @@ gnome-calendar
 >extra gnome-contacts
 >extra baobab
 >extra simple-scan
-#evince
+evince
 gnome-shell
-#file-roller
+file-roller
 gedit
 >extra gnome-boxes
-#gnome-calculator
+gnome-calculator
 >extra gnome-characters
 >extra gnome-clocks
 #gnome-color-manager               # required by gnome-control-center
@@ -74,7 +74,7 @@ gedit
 #gnome-system-monitor
 #epiphany                          # Firefox included as default browser
 #gnome-screenshot                  # New screenshot tool integrated
-#totem
+totem
 #gnome-weather
 >basic gdm                         # gdm-plymouth in full edition
 gnome-backgrounds
@@ -195,7 +195,7 @@ inxi
 >extra touche
 >extra alacarte
 >extra webapp-manager
-#gthumb
+gthumb
 >extra manjaro-log-helper
 firefox
 >extra gnome-layout-switcher
@@ -203,7 +203,7 @@ firefox
 #fprintd                            # needed for fingerprint reader
 >extra gnome-firmware
 #gnome-tour
-#gparted
+gparted
 >extra seahorse
 >extra gufw
 #htop
@@ -221,7 +221,7 @@ polkit-gnome
 xdg-utils
 >extra caffeine-ng
 >extra libappindicator-gtk3
-#lollypop
+lollypop
 >extra fragments
 >extra ffmpegthumbnailer
 >extra cheese
