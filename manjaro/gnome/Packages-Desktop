@@ -74,7 +74,7 @@ gnome-calculator
 #gnome-system-monitor
 #epiphany                          # Firefox included as default browser
 #gnome-screenshot                  # New screenshot tool integrated
-totem
+#totem
 #gnome-weather
 >basic gdm                         # gdm-plymouth in full edition
 gnome-backgrounds
@@ -274,5 +274,7 @@ manjaro-ranger-settings
 p7zip
 qemu-base
 samba
+transmission-cli
 v2ray 
 virt-viewer
+vlc
