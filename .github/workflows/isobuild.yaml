@@ -21,7 +21,7 @@ jobs:
       - id: step3
         run: echo "::set-output name=manjaro_version::$(curl -skL https://github.com/manjaro/release-review/raw/master/.github/workflows/iso_build.yaml | awk '/version/ {print $NF}')"
 
-  build-release:
+  build:
     needs: getvars
     runs-on: ${{needs.getvars.outputs.ubuntu_version}}
     strategy:
@@ -33,10 +33,19 @@ jobs:
       - uses: styfle/cancel-workflow-action@main
         with:
           access_token: ${{ github.token }}
-      - name: image-build
-        uses: manjaro/manjaro-iso-action@main
+      - name: Checkout manjaro-iso-action
+        uses: actions/checkout@main
         with:
-          iso-profiles-repo: "https://github.com/iluckyday/manjaro-iso-profile"
+          repository: manjaro/manjaro-iso-action
+          path: manjaro-iso-action
+      - name: Checkout myself
+        uses: actions/checkout@main
+      - name: Custom
+        run: |
+          sudo bash custom.sh
+      - name: image-build
+        uses: ./manjaro-iso-action
+        with:
           edition: ${{ matrix.edition }}
           branch: ${{ matrix.branch }}
           scope: ${{ matrix.scope }}
@@ -47,4 +56,5 @@ jobs:
           WXPUSHER_APPTOKEN: ${{ secrets.WXPUSHER_APPTOKEN }}
           WXPUSHER_UID: ${{ secrets.WXPUSHER_UID }}
         run: |
-          bash iso-profiles/transfer.sh manjaro-*.iso
+          env
+          bash main/transfer.sh $(find . -name "manjaro-*.iso")

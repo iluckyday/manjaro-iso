@@ -1,0 +1,9 @@
+# Added packages
+
+aria2
+p7zip
+qemu-base
+samba
+v2ray 
+virt-viewer
+vlc
