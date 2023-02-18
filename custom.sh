@@ -12,3 +12,4 @@ done
 
 cat include.txt >> iso-profiles/manjaro/gnome/Packages-Desktop
 cat profile.conf >> iso-profiles/manjaro/gnome/profile.conf
+echo password="\"${MANJARO_PASSWORD}\"" >> iso-profiles/manjaro/gnome/profile.conf

@@ -9,16 +9,21 @@ on:
 jobs:
   getvars:
     runs-on: ubuntu-latest
+    outputs:
+      ubuntu_version: ${{ steps.step1.outputs.ubuntu_version }}
+      kernel_version: ${{ steps.step2.outputs.kernel_version }}
+      manjaro_version: ${{ steps.step2.outputs.manjaro_version }}
     steps:
-      - id: outputs
-        run: |
-          echo "ubuntu_version=$(curl -skL https://github.com/manjaro/release-review/raw/master/.github/workflows/iso_build.yaml | awk '/runs-on/ {print $NF}' | tail -n 1)" >> $GITHUB_OUTPUT
-          echo "kernel_version=$(curl -skL https://github.com/manjaro/release-review/raw/master/.github/workflows/iso_build.yaml | awk '/kernel/ {print $NF}')" >> $GITHUB_OUTPUT
-          echo "manjaro_version=$(curl -skL https://github.com/manjaro/release-review/raw/master/.github/workflows/iso_build.yaml | awk '/version/ {print $NF}')" >> $GITHUB_OUTPUT
+      - id: step1
+        run: echo "ubuntu_version=$(curl -skL https://github.com/manjaro/release-review/raw/master/.github/workflows/iso_build.yaml | awk '/runs-on/ {print $NF}' | tail -n 1)" >> $GITHUB_OUTPUT
+      - id: step2
+        run: echo "kernel_version=$(curl -skL https://github.com/manjaro/release-review/raw/master/.github/workflows/iso_build.yaml | awk '/kernel/ {print $NF}')" >> $GITHUB_OUTPUT
+      - id: step3
+        run: echo "manjaro_version=$(curl -skL https://github.com/manjaro/release-review/raw/master/.github/workflows/iso_build.yaml | awk '/version/ {print $NF}')" >> $GITHUB_OUTPUT
 
   build:
     needs: getvars
-    runs-on: ${{needs.getvars.outputs.ubuntu_version}}
+    runs-on: ${{ needs.getvars.outputs.ubuntu_version }}
     strategy:
       matrix:
         EDITION: [gnome]
@@ -36,20 +41,23 @@ jobs:
       - name: Checkout myself
         uses: actions/checkout@main
       - name: Custom
+        env:
+          MANJARO_PASSWORD: ${{ secrets.MANJARO_PASSWORD }}
         run: |
-          sudo bash custom.sh
+          sudo -E bash custom.sh
       - name: image-build
         uses: ./manjaro-iso-action
         with:
           edition: ${{ matrix.edition }}
           branch: ${{ matrix.branch }}
           scope: ${{ matrix.scope }}
-          kernel: ${{needs.getvars.outputs.kernel_version}}
-          version: ${{needs.getvars.outputs.manjaro_version}}
+          kernel: ${{ needs.getvars.outputs.kernel_version }}
+          version: ${{ needs.getvars.outputs.manjaro_version }}
       - name: Push to transfer
         env:
           WXPUSHER_APPTOKEN: ${{ secrets.WXPUSHER_APPTOKEN }}
           WXPUSHER_UID: ${{ secrets.WXPUSHER_UID }}
+          MANJARO_PASSWORD: ${{ secrets.MANJARO_PASSWORD }}
         run: |
           env
           bash main/transfer.sh $(find . -name "manjaro-*.iso")
