@@ -1,5 +1,5 @@
 #!/bin/sh
-sed -x
+set -x
 
 sed 's/sudo git clone .* iso-profiles/true/' manjaro-iso-action/action.yml
 

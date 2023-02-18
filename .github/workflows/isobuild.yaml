@@ -9,17 +9,12 @@ on:
 jobs:
   getvars:
     runs-on: ubuntu-latest
-    outputs:
-      ubuntu_version: ${{ steps.step1.outputs.ubuntu_version }}
-      kernel_version: ${{ steps.step2.outputs.kernel_version }}
-      manjaro_version: ${{ steps.step3.outputs.manjaro_version }}
     steps:
-      - id: step1
-        run: echo "::set-output name=ubuntu_version::$(curl -skL https://github.com/manjaro/release-review/raw/master/.github/workflows/iso_build.yaml | awk '/runs-on/ {print $NF}' | tail -n 1)"
-      - id: step2
-        run: echo "::set-output name=kernel_version::$(curl -skL https://github.com/manjaro/release-review/raw/master/.github/workflows/iso_build.yaml | awk '/kernel/ {print $NF}')"
-      - id: step3
-        run: echo "::set-output name=manjaro_version::$(curl -skL https://github.com/manjaro/release-review/raw/master/.github/workflows/iso_build.yaml | awk '/version/ {print $NF}')"
+      - id: outputs
+        run: |
+          echo "ubuntu_version=$(curl -skL https://github.com/manjaro/release-review/raw/master/.github/workflows/iso_build.yaml | awk '/runs-on/ {print $NF}' | tail -n 1)" >> $GITHUB_OUTPUT
+          echo "kernel_version=$(curl -skL https://github.com/manjaro/release-review/raw/master/.github/workflows/iso_build.yaml | awk '/kernel/ {print $NF}')" >> $GITHUB_OUTPUT
+          echo "manjaro_version=$(curl -skL https://github.com/manjaro/release-review/raw/master/.github/workflows/iso_build.yaml | awk '/version/ {print $NF}')" >> $GITHUB_OUTPUT
 
   build:
     needs: getvars
