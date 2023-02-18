@@ -44,6 +44,7 @@ jobs:
         env:
           MANJARO_PASSWORD: ${{ secrets.MANJARO_PASSWORD }}
         run: |
+          ls -lR
           sudo -E bash custom.sh
       - name: image-build
         uses: ./manjaro-iso-action
