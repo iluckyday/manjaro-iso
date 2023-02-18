@@ -6,9 +6,12 @@ curl -skL https://github.com/Mikubill/transfer/releases/download/"$ver"/transfer
 
 FILE=$1
 
-t_data=$(/tmp/transfer wet --silent $FILE)
-
+split --verbose -d -b 1500M ${FILE} ${FILE}.
+for f in $(ls ${FILE}.*)
+do
+t_data=$(/tmp/transfer wet --silent $f)
 FILENAME=$(basename $FILE)
 SIZE="$(du -h $FILE | awk '{print $1}')"
 data="$FILENAME-$SIZE-${t_data}"
 curl -skLo /dev/null "https://wxpusher.zjiecode.com/api/send/message/?appToken=${WXPUSHER_APPTOKEN}&uid=${WXPUSHER_UID}&content=${data}"
+done
