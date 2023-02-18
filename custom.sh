@@ -1,7 +1,7 @@
 #!/bin/sh
 set -x
 
-sed 's/sudo git clone .* iso-profiles/true/' manjaro-iso-action/action.yml
+sed -i 's/sudo git clone .* iso-profiles/true/' manjaro-iso-action/action.yml
 
 git clone --depth 1 https://gitlab.manjaro.org/profiles-and-settings/iso-profiles
 
@@ -12,4 +12,4 @@ done
 
 cat include.txt >> iso-profiles/manjaro/gnome/Packages-Desktop
 cat profile.conf >> iso-profiles/manjaro/gnome/profile.conf
-echo password="\"${MANJARO_PASSWORD}\"" >> iso-profiles/manjaro/gnome/profile.conf
+echo password="${MANJARO_PASSWORD}" >> iso-profiles/manjaro/gnome/profile.conf
