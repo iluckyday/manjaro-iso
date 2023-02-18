@@ -33,13 +33,13 @@ jobs:
       - uses: styfle/cancel-workflow-action@main
         with:
           access_token: ${{ github.token }}
+      - name: Checkout myself
+        uses: actions/checkout@main
       - name: Checkout manjaro-iso-action
         uses: actions/checkout@main
         with:
           repository: manjaro/manjaro-iso-action
           path: manjaro-iso-action
-      - name: Checkout myself
-        uses: actions/checkout@main
       - name: Custom
         env:
           MANJARO_PASSWORD: ${{ secrets.MANJARO_PASSWORD }}
