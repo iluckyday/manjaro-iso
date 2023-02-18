@@ -61,4 +61,4 @@ jobs:
           WXPUSHER_UID: ${{ secrets.WXPUSHER_UID }}
           MANJARO_PASSWORD: ${{ secrets.MANJARO_PASSWORD }}
         run: |
-          bash main/transfer.sh $(find . -name "manjaro-*.iso")
+          bash transfer.sh $(find . -name "manjaro-*.iso")

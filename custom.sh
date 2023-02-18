@@ -7,7 +7,7 @@ git clone --depth 1 https://gitlab.manjaro.org/profiles-and-settings/iso-profile
 
 for i in $(< exclude.txt)
 do
-	find iso-profiles -type f | xargs sed -i "/^${i}/d"
+	find iso-profiles -type f -name "Packages-*" | xargs sed -i "/^${i}/d"
 done
 
 cat include.txt >> iso-profiles/manjaro/gnome/Packages-Desktop
