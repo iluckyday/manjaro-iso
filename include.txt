@@ -1,9 +1,10 @@
 # Added packages
 
 aria2
+kodi
 p7zip
+oath-toolkit
 qemu-base
 samba
 v2ray 
 virt-viewer
-vlc

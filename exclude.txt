@@ -28,6 +28,7 @@ adwaita-maia
 gnome-themes-extra
 fprintd
 gnome-tour
+gthumb
 htop
 lollypop
 manjaro-hello
