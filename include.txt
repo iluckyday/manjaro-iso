@@ -1,10 +1,12 @@
 # Added packages
 
 aria2
-kodi
 p7zip
 oath-toolkit
 qemu-base
+reminna
 samba
 v2ray 
+vim
 virt-viewer
+vlc
