@@ -4,7 +4,7 @@ aria2
 p7zip
 oath-toolkit
 qemu-base
-reminna
+remmina
 samba
 v2ray 
 vim
