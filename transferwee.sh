@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ex
 
-curl -skLo /tmp/tranfserwee.py https://raw.githubusercontent.com/iamleot/transferwee/master/transferwee.py
+curl -kLo /tmp/tranfserwee.py https://raw.githubusercontent.com/iamleot/transferwee/master/transferwee.py
 
 FILE=$1
 
