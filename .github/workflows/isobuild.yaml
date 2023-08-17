@@ -67,6 +67,7 @@ jobs:
             cache-cache
 
   upload:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: styfle/cancel-workflow-action@main
