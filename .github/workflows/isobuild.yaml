@@ -81,6 +81,11 @@ jobs:
           key: cache-manjaro-iso
           path: |
             cache-cache
+      - name: install python 3.11
+        run: |
+          sudo add-apt-repository ppa:deadsnakes/ppa -y
+          sudo apt update
+          sudo apt install python3.11
       - name: Push to transfer
         env:
           WXPUSHER_APPTOKEN: ${{ secrets.WXPUSHER_APPTOKEN }}
