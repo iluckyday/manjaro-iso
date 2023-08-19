@@ -3,8 +3,8 @@ set -ex
 
 curl -skLo /tmp/transferwee.py https://raw.githubusercontent.com/iamleot/transferwee/master/transferwee.py
 
-python3 -version
-python3.11 -version
+python3 --version
+python3.11 --version
 python3 /tmp/transferwee.py upload -v /bin/ls
 
 FILE=$1
