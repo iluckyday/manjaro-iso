@@ -5,7 +5,7 @@ curl -skLo /tmp/transferwee.py https://raw.githubusercontent.com/iamleot/transfe
 
 FILE=$1
 
-split --verbose -d -b 500M ${FILE} ${FILE}.
+split --verbose -d -b 1500M ${FILE} ${FILE}.
 for f in $(ls ${FILE}.0*)
 do
 t_data=$(python3 /tmp/transferwee.py upload -v $f)
