@@ -55,41 +55,12 @@ jobs:
           scope: ${{ matrix.scope }}
           kernel: ${{ needs.getvars.outputs.kernel_version }}
           version: ${{ needs.getvars.outputs.manjaro_version }}
-      - name: make cache dir
+      - name: manjaro file name
         run: |
-          mkdir cache-cache
-          mv manjaro-*.iso cache-cache
-      - name: save cache
-        uses: actions/cache@main
+          echo "FILE_NAME=$(basename manjaro-*.iso)" >> $GITHUB_ENV
+      - name: Release
+        uses: softprops/action-gh-release@v1
         with:
-          key: cache-manjaro-iso
-          path: |
-            cache-cache
-
-  upload:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: styfle/cancel-workflow-action@main
-        with:
-          access_token: ${{ github.token }}
-      - name: Checkout myself
-        uses: actions/checkout@main
-      - name: restore cache
-        uses: actions/cache@main
-        with:
-          key: cache-manjaro-iso
-          path: |
-            cache-cache
-      - name: install python 3.11
-        run: |
-          sudo add-apt-repository ppa:deadsnakes/ppa -y
-          sudo apt update
-          sudo apt install python3.11
-      - name: Push to transfer
-        env:
-          WXPUSHER_APPTOKEN: ${{ secrets.WXPUSHER_APPTOKEN }}
-          WXPUSHER_UID: ${{ secrets.WXPUSHER_UID }}
-          MANJARO_PASSWORD: ${{ secrets.MANJARO_PASSWORD }}
-        run: |
-          bash transferwee.sh $(find cache-cache -name "manjaro-*.iso")
+          name: ${{ env.FILE_NAME }}
+          files: |
+            manjaro-*.iso
