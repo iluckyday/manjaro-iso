@@ -57,11 +57,13 @@ jobs:
           version: ${{ needs.getvars.outputs.manjaro_version }}
       - name: manjaro file name
         run: |
-          echo "FILE_NAME=$(basename manjaro-*.iso)" >> $GITHUB_ENV
+          FILE_NAME=$(basename manjaro-*.iso)
+          echo "FILE_NAME=${FILE_NAME}" >> $GITHUB_ENV
+          split --verbose -d -b 1500M ${FILE_NAME} ${FILE_NAME}.
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           name: ${{ env.FILE_NAME }}
           tag_name: ${{ env.FILE_NAME }}
           files: |
-            manjaro-*.iso
+            manjaro-*.iso.*
