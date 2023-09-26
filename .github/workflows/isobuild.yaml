@@ -62,5 +62,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           name: ${{ env.FILE_NAME }}
+          tag_name: ${{ env.FILE_NAME }}
           files: |
             manjaro-*.iso
