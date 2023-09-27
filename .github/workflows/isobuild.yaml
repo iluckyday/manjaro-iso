@@ -47,7 +47,7 @@ jobs:
           env
           ls -lR
           sudo -E bash custom.sh
-      - name: image-build
+      - name: Image build
         uses: ./manjaro-iso-action
         with:
           edition: ${{ matrix.edition }}
@@ -55,15 +55,8 @@ jobs:
           scope: ${{ matrix.scope }}
           kernel: ${{ needs.getvars.outputs.kernel_version }}
           version: ${{ needs.getvars.outputs.manjaro_version }}
-      - name: manjaro file name
-        run: |
-          FILE_NAME=$(basename manjaro-*.iso)
-          echo "FILE_NAME=${FILE_NAME}" >> $GITHUB_ENV
-          split --verbose -d -b 1500M ${FILE_NAME} ${FILE_NAME}.
-      - name: Release
-        uses: softprops/action-gh-release@v1
+      - name: Upload iso artifact
+        uses: actions/upload-artifact@main
         with:
-          name: ${{ env.FILE_NAME }}
-          tag_name: ${{ env.FILE_NAME }}
-          files: |
-            manjaro-*.iso.*
+          name: manjaro-iso
+          path: manjaro-*.iso
