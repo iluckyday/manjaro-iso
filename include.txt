@@ -1,9 +1,12 @@
 # Added packages
 
 aria2
+freerdp
 p7zip
+libvncserver
 oath-toolkit
-qemu-base
+python-pyotp
+qemu-desktop
 remmina
 samba
 v2ray 
