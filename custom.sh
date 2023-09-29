@@ -11,7 +11,7 @@ do
 done
 
 # disable Packages-Mhwd
-echo > iso-profiles/shared/Packages-Mhwd
+echo busybox > iso-profiles/shared/Packages-Mhwd
 
 NOEXTRACT="
 [options]
