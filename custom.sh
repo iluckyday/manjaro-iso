@@ -26,6 +26,7 @@ NoExtract = usr/share/doc/*
 
 echo "${NOEXTRACT}" > /etc/pacman.conf.custom
 sed -i '/pacman.conf/a\          cat /etc/pacman.conf.custom | sudo tee -a /etc/pacman.conf' manjaro-iso-action/action.yml
+sed -i '/install_iso/a\          cat /etc/pacman.conf.custom | sudo tee -a /usr/share/manjaro-tools/pacman-*.conf' manjaro-iso-action/action.yml
 
 cat include.txt >> iso-profiles/manjaro/gnome/Packages-Desktop
 cat profile.conf >> iso-profiles/manjaro/gnome/profile.conf
