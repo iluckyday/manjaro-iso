@@ -33,3 +33,10 @@ htop
 lollypop
 manjaro-hello
 manjaro-browser-settings
+ttf-dejavu
+ttf-droid
+ttf-hack
+ttf-inconsolata
+ttf-indic-otf
+ttf-liberation
+gnome-backgrounds

@@ -17,11 +17,14 @@ NOEXTRACT="
 [options]
 NoExtract = usr/share/locale/* usr/share/X11/locale/*/* usr/share/i18n/locales/*
 NoExtract = !*locale*/en*/* !usr/share/*locale*/locale.*
-NoExtract = usr/share/man/* !usr/share/man/man*
+NoExtract = usr/share/man/*
 NoExtract = usr/share/vim/vim*/lang/*
 NoExtract = usr/include/*
 NoExtract = *__pycache__*
 NoExtract = usr/share/doc/*
+NoExtract = usr/share/gtk-doc/*
+NoExtract = usr/share/help/*
+NoExtract = usr/lib/firmware/* !usr/lib/firmware/iwlwifi* !usr/lib/firmware/i915*
 "
 
 echo "${NOEXTRACT}" > /etc/pacman.conf.custom
