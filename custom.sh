@@ -30,8 +30,8 @@ NoExtract = usr/share/backgrounds/* !usr/share/backgrounds/manjaro/abstract-*
 echo "${NOEXTRACT}" > /etc/pacman.conf.custom
 sed -i '/pacman.conf/a\          cat /etc/pacman.conf.custom | sudo tee -a /etc/pacman.conf' manjaro-iso-action/action.yml
 sed -i '/install_iso/a\          cat /etc/pacman.conf.custom | sudo tee -a /usr/share/manjaro-tools/pacman-*.conf' manjaro-iso-action/action.yml
-sed -i '/install_iso/a\          sudo sed -i "/xorriso/a\    rm -rf \${iso_root}/usr/share/i18n/locales/*" /usr/lib/manjaro-tools/util-iso.sh' manjaro-iso-action/action.yml
-sed -i '/install_iso/a\          sudo sed -i "/xorriso/a\    find \${iso_root}/usr/*/locale -mindepth 1 -maxdepth 1 ! -name locale-archive -prune -exec rm -rf {} +" /usr/lib/manjaro-tools/util-iso.sh' manjaro-iso-action/action.yml
+sed -i '/install_iso/a\          sudo sed -i "/xorriso/i\    rm -rf \${iso_root}/usr/share/i18n/locales/*" /usr/lib/manjaro-tools/util-iso.sh' manjaro-iso-action/action.yml
+sed -i '/install_iso/a\          sudo sed -i "/xorriso/i\    find \${iso_root}/usr/*/locale -mindepth 1 -maxdepth 1 ! -name locale-archive -prune -exec rm -rf {} +" /usr/lib/manjaro-tools/util-iso.sh' manjaro-iso-action/action.yml
 
 cat include.txt >> iso-profiles/manjaro/gnome/Packages-Desktop
 cat profile.conf >> iso-profiles/manjaro/gnome/profile.conf
