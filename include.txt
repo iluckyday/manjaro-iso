@@ -5,7 +5,6 @@ freerdp
 p7zip
 libvncserver
 oath-toolkit
-python-pyotp
 qemu-desktop
 remmina
 samba
