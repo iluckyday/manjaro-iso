@@ -11,4 +11,3 @@ samba
 v2ray 
 vim
 virt-viewer
-vlc

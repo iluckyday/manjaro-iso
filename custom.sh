@@ -22,7 +22,7 @@ NoExtract = *__pycache__*
 NoExtract = usr/share/doc/*
 NoExtract = usr/share/gtk-doc/*
 NoExtract = usr/share/help/*
-NoExtract = usr/lib/firmware/* !usr/lib/firmware/iwlwifi* !usr/lib/firmware/i915*
+NoExtract = usr/lib/firmware/amdgpu* usr/lib/firmware/nvidia* usr/lib/firmware/radeon*
 NoExtract = */qemu-system-i386
 NoExtract = usr/share/backgrounds/* !usr/share/backgrounds/manjaro/abstract-*
 "
